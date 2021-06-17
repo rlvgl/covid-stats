@@ -40,7 +40,7 @@ function AppTitle (props) {
     return (
         <>
         <Container maxWidth="sm">
-            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>{props.page == 'United States' ? 'America' : 'International'} COVID-19 Tracker</Typography>
+            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>{props.page === 'United States' ? 'America' : 'International'} COVID-19 Tracker</Typography>
             <Typography align="center" color="textSecondary" paragraph>
                 This is a COVID-19 tracker and this shows the international and national data for the most recent and updated COVID data in lives lost.
             </Typography>
