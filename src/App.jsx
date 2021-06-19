@@ -15,9 +15,9 @@ const App = () => {
         axios.get('https://disease.sh/v3/covid-19/countries/usa')
             .then(response => {
                 setUsData({
-                cases: numberFormatted(response.cases),
-                recovered: numberFormatted(response.recovered),
-                deaths: numberFormatted(response.deaths)
+                cases: response.cases,
+                recovered: response.recovered,
+                deaths: response.deaths
                 })
             })
     }
@@ -26,24 +26,14 @@ const App = () => {
         axios.get('https://disease.sh/v3/covid-19/all')
             .then(response => {
                 setInternationalData({
-                    cases: numberFormatted(response.cases),
-                    recovered: numberFormatted(response.recovered),
-                    deaths: numberFormatted(response.deaths) 
+                    cases: response.cases,
+                    recovered: response.recovered,
+                    deaths: response.deaths 
                 })
             })
     }
 
-    // use regex to format numbers
-    // straight from stackoverflow
-    const numberFormatted = (x) => {
-        /* x = x.toString();
-        var pattern = /(-?\d+)(\d{3})/;
-        while (pattern.test(x))
-            x = x.replace(pattern, "$1,$2"); */
-        return x;
-    }
-
-    // run effects once at beginning of program
+    // run effects on rerender
     useEffect(() => {
         getUsData();
         getInternationalData();
